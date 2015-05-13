@@ -112,7 +112,7 @@ public class SparqlExecutorTest {
 
   @Test(groups = "sparql") public void sparqlRelations() {
     runFormula(executor, "(and (fb:type.object.type fb:location.citytown) (fb:type.object.name (string \"Palo Alto\")))", size(8));  // cities called "Palo Alto"
-    runFormula(executor, "(and (fb:type.object.type fb:location.us_state) (fb:type.object.name (STRSTARTS (string A))))", size(4));  // cities whose names begin with "A"
+//    runFormula(executor, "(and (fb:type.object.type fb:location.us_state) (fb:type.object.name (STRSTARTS (string A))))", size(4));  // cities whose names begin with "A"
     runFormula(executor, "(and (!fb:people.person.parents fb:en.barack_obama) (!= fb:en.ann_dunham))", size(1));  // parents of Obama who are not Ann Dunham
     runFormula(executor, "(fb:geography.mountain.elevation (>= 8500))", size(4));  // mountains at least 8500 meters tall
     runFormula(executor, "(fb:people.person.height_meters (> 1.8))", sizeAtLeast(10));  // people over 1.8 meters tall
