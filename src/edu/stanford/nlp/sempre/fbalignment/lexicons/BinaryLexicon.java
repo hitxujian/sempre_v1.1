@@ -56,6 +56,7 @@ public class BinaryLexicon {
   public static final String NL_TYPED = "NL_typed_size";
   public static final String FB_TYPED = "FB_typed_size";
   public static final String COS_SIM = "Cosine_similarity";
+
   
 
   Map<String, Map<Pair<Formula, String>, BinaryLexicalEntry>> lexemeToEntryMap = new HashMap<String, Map<Pair<Formula, String>, BinaryLexicalEntry>>();
@@ -89,6 +90,7 @@ public class BinaryLexicon {
     for (String line : IOUtils.readLines(lexiconFile)) {
      
       LexiconValue lv = Json.readValueHard(line, LexiconValue.BinaryLexiconValue.class);
+
       String lexemeKey = lv.lexeme;
       String normalizedLexemeKey = lexiconLoadingNormalizer.normalize(lexemeKey);
       addEntryToMap(lexemeToEntryMap, lexemeKey, lv);

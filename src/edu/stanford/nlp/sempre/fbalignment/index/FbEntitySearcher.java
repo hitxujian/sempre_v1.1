@@ -67,7 +67,9 @@ public class FbEntitySearcher {
   }
 
   private ScoreDoc[] getHits(String question) throws IOException, ParseException {
-    Query luceneQuery = queryParser.parse(question);
+
+//    Query luceneQuery = queryParser.parse(question);
+    Query luceneQuery = queryParser.parse(queryParser.escape(question));
     ScoreDoc[] hits = indexSearcher.search(luceneQuery, numOfDocs).scoreDocs;
     return hits;
   }

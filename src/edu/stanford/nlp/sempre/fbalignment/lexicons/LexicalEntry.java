@@ -249,6 +249,7 @@ public class LexicalEntry {
                         @JsonProperty("formula") Formula formula,
                         @JsonProperty("source") String source,
                         @JsonProperty("features") Map<String,Double> features) {
+
       this.lexeme = lexeme;
       this.formula = formula;
       this.source = source;

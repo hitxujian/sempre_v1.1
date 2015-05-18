@@ -37,10 +37,9 @@ public class FbEntityIndexer {
    * Index the datadump file
    *
    * @throws IOException
-   * @throws FreebaseDataDumpException
+
    */
   public void index() throws IOException {
-
     LogInfo.begin_track("Indexing");
     BufferedReader reader = IOUtils.getBufferedFileReader(nameFile);
     String line;
@@ -77,6 +76,7 @@ public class FbEntityIndexer {
 
     indexer.close();
     LogInfo.log("Done");
+
     LogInfo.end_track("Indexing");
   }
 
