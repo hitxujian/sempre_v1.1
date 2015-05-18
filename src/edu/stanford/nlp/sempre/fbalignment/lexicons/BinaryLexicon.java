@@ -88,7 +88,7 @@ public class BinaryLexicon {
     LogInfo.begin_track_printAll("Loading lexicon file " + lexiconFile);
     for (String line : IOUtils.readLines(lexiconFile)) {
      
-      LexiconValue lv = Json.readValueHard(line, LexiconValue.class);
+      LexiconValue lv = Json.readValueHard(line, LexiconValue.BinaryLexiconValue.class);
       String lexemeKey = lv.lexeme;
       String normalizedLexemeKey = lexiconLoadingNormalizer.normalize(lexemeKey);
       addEntryToMap(lexemeToEntryMap, lexemeKey, lv);

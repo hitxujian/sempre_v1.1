@@ -243,18 +243,28 @@ public class LexicalEntry {
     @JsonProperty public Formula formula;
     @JsonProperty public String source;
     @JsonProperty public Map<String,Double> features;
-    @JsonProperty public Double cosine_similarity;
 
     @JsonCreator
     public LexiconValue(@JsonProperty("normLexeme") String lexeme,
-        @JsonProperty("formula") Formula formula,
-        @JsonProperty("source") String source,
-        @JsonProperty("features") Map<String,Double> features, @JsonProperty("cosine_similarity") Double cosine_similarity) {
+                        @JsonProperty("formula") Formula formula,
+                        @JsonProperty("source") String source,
+                        @JsonProperty("features") Map<String,Double> features) {
       this.lexeme = lexeme;
       this.formula = formula;
       this.source = source;
       this.features = features;
-      this.cosine_similarity = cosine_similarity;
+    }
+
+    public static class BinaryLexiconValue extends LexiconValue {
+      @JsonProperty public Double cosine_similarity;
+      @JsonCreator
+      public BinaryLexiconValue(@JsonProperty("normLexeme") String lexeme,
+                          @JsonProperty("formula") Formula formula,
+                          @JsonProperty("source") String source,
+                          @JsonProperty("features") Map<String,Double> features, @JsonProperty("cosine_similarity") Double cosine_similarity) {
+        super(lexeme,formula,source,features);
+        this.cosine_similarity = cosine_similarity;
+      }
     }
   }
 
